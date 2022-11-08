@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Forms;
 use Illuminate\Http\Request;
 
 class FormsController extends Controller
@@ -13,7 +14,10 @@ class FormsController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $forms = Forms::all();
+        return view('forms.index', [
+            "forms" => $forms
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class FormsController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.create');
     }
 
     /**
@@ -34,7 +38,12 @@ class FormsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Forms::create([
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+        ]);
+
+        return redirect('/forms');
     }
 
     /**
@@ -45,18 +54,22 @@ class FormsController extends Controller
      */
     public function show($id)
     {
-        //
+        $form = Forms::find($id);
+        return view('forms.show')->with('form', $form);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
     public function edit($id)
     {
-        //
+        $form = Forms::find($id);
+        return view('forms.edit', [
+            "form" => $form
+        ]);
     }
 
     /**
@@ -68,7 +81,12 @@ class FormsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Forms::where('id', $id)->update([
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+        ]);
+
+        return redirect('/forms');
     }
 
     /**
@@ -77,8 +95,9 @@ class FormsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Forms $form)
     {
-        //
+        $form->delete();
+        return redirect('/forms');
     }
 }

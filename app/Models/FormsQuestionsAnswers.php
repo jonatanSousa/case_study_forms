@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class FormsQuestionsAnswers extends Model
 {
     use HasFactory;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    /*public function formsQuestionAnswers() {
+        return $this->belongsTo(FormsQuestions::class);
+    }*/
 }

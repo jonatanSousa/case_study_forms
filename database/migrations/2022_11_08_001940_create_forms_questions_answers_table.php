@@ -17,10 +17,14 @@ return new class extends Migration
             $table->increments('id');
             $table->string('ref');
             $table->string('text');
-            $table->string('question_ref');
+            $table->unsignedInteger('forms_questions_id');
             $table->string('behavior');
             $table->string('restriction');
             $table->timestamps();
+            $table->foreign('forms_questions_id')
+                ->references('id')
+                ->on('forms_questions')
+                ->onDelete('cascade');
         });
     }
 

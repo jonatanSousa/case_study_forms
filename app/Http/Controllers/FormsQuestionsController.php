@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormsQuestions;
 use Illuminate\Http\Request;
 
-class FormQuestionsController extends Controller
+class FormsQuestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,7 @@ class FormQuestionsController extends Controller
     public function index()
     {
         //
+        die ('aqiooooo ');
     }
 
     /**
@@ -23,7 +25,7 @@ class FormQuestionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('formsQuestions.create');
     }
 
     /**
@@ -34,7 +36,16 @@ class FormQuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        FormsQuestions::create([
+            "text" => $request->input('text'),
+            "ref" => $request->input('form_id'),
+            "forms_id" => $request->input('form_id'),
+            //to remove
+            "question_ref" => $request->input('form_id'),
+            "parent_question" => $request->input('form_id'),
+        ]);
+
+        return redirect('/forms');
     }
 
     /**
@@ -57,6 +68,7 @@ class FormQuestionsController extends Controller
     public function edit($id)
     {
         //
+        dd('form edit ') ;
     }
 
     /**

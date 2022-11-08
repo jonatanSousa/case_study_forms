@@ -1,7 +1,11 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\FormsQuestionsController;
+use App\Models\FormsQuestionsAnswers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +18,7 @@ use App\Http\Controllers\FormsController;
 */
 
 Route::resource('/forms', FormsController::class);
+Route::resource('/forms-questions', FormsQuestionsController::class);
+Route::resource('/forms-questions-answers', FormsQuestionsAnswers::class);
 
 

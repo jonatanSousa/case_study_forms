@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormsQuestions extends Model
 {
-    use HasFactory;
+    protected $table = 'forms_questions';
+    protected $primaryKey = 'id';
+
+    protected $fillable = ['text', 'forms_id', 'ref', 'question_ref', 'parent_question'];
+
+    public function Forms() {
+        return $this->belongsTo(Forms::class);
+    }
 }
