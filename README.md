@@ -1,11 +1,11 @@
 
+https://www.cloudsigma.com/deploying-laravel-nginx-and-mysql-with-docker-compose/
+
 ## Requirements
 - PHP 8.0.x
 - MYSQL
 
 ## Basic Installation & Setup
-
-This project has no special requirements besides [Browsershot](https://github.com/spatie/browsershot), take it as a vanilla Laravel + Jetstream setup
 
 ```bash
 git clone https://github.com/jonatanSousa/case_study_forms.git study_forms
