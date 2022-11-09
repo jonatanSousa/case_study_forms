@@ -1,6 +1,3 @@
-
-https://www.cloudsigma.com/deploying-laravel-nginx-and-mysql-with-docker-compose/
-
 ## Requirements
 - PHP 8.0.x
 - MYSQL 5.7.x
@@ -36,24 +33,33 @@ cd study_forms
 cp .env.example .env
 docker-compose build
 docker-compose up -d
+docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
-```
-
-To then execute command please kindly use :
-```
-docker-compose exec app bash
 ```
 
 If all goes well your new shiny website should be serving at ``http://localhost/forms``, like the image bellow, enjoy 🎉 !
 
 ![Screenshot from 2022-11-09 17-15-10](https://user-images.githubusercontent.com/35583616/200897112-c1030650-87f7-46e3-978c-5988dd61f39d.png)
 
+## Using the Api
+
+```bash
+curl --location --request GET 'http://127.0.0.1/api/forms/1'
+```
+
+## Testing
+
+```bash
+docker-compose exec app php artisan test
+```
+
 ## Database stucture 
 
 ![Screenshot from 2022-11-09 17-14-34](https://user-images.githubusercontent.com/35583616/200897138-f85db7ed-5761-4d5f-93fc-fc14f00a2765.png)
 
-## License
+## Comments
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Why Laravel?
+There is no reason except for velocity and knowledge update purposes.
 
 
