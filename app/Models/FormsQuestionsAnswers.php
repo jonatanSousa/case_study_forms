@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormsQuestionsAnswers extends Model
 {
-    protected $fillable = ['text', 'ref', 'forms_questions_id','behavior', 'restriction'];
+    protected $fillable = ['text', 'order', 'form_id', 'forms_questions_id','behavior', 'restriction'];
 
     public function FormsQuestions() {
         return $this->belongsTo(FormsQuestions::class);

@@ -39,13 +39,13 @@
                     placeholder="Form question Text"
                 >
 
-               <!--  <input
+                <input
                     type="text"
                     class="block shadow-5x1 mb-10 w-80 placeholder-gray-400"
-                    name="behavior"
-                    placeholder="behavior"
+                    name="order"
+                    placeholder="Order"
                 >
-                -->
+
 
                 <select
                     class="block shadow-5x1 mb-10 w-80 placeholder-gray-400"
@@ -68,15 +68,6 @@
                         </option>
                     @endforeach
                 </select>
-
-
-               <!-- <input
-                    type="number"
-                    class="block shadow-5x1 mb-10 w-80 placeholder-gray-400"
-                    name="order"
-                    placeholder="order"
-                >
--->
 
 
                 <input

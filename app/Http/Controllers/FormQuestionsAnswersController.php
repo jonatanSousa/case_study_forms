@@ -6,7 +6,6 @@ use App\Models\Forms;
 use Illuminate\Http\Request;
 use App\Models\FormsQuestionsAnswers;
 
-
 class FormQuestionsAnswersController extends Controller
 {
     /**
@@ -47,7 +46,8 @@ class FormQuestionsAnswersController extends Controller
             'forms_questions_id' => $request->input('forms_questions_id'),
             'behavior' => $request->input('behavior'),
             'restriction' => $request->input('restriction'),
-            //'order' => $request->input('order'),
+            'order' => $request->input('order'),
+            'form_id' => $request->input('form_id'),
         ]);
 
         return redirect('/forms/'.$request->input('form_id'));
@@ -74,7 +74,7 @@ class FormQuestionsAnswersController extends Controller
     {
         ///get form
         $formAnswer = FormsQuestionsAnswers::find($id);
-        $forms = Forms::find(5);
+        $forms = Forms::find($formAnswer->form_id);
         return view('formsQuestionsAnswers.edit', [
             'answer' => $formAnswer,
             'behaviors' => $this->getBehaviors($forms->FormsQuestions),
@@ -91,15 +91,16 @@ class FormQuestionsAnswersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        FormsQuestionsAnswers::where('id', $id)->update([
+        $formAnswer = FormsQuestionsAnswers::find($id);
+        $formAnswer->update([
             'text' => $request->input('text'),
             'forms_questions_id' => $request->input('forms_questions_id'),
             'behavior' => $request->input('behavior'),
             'restriction' => $request->input('restriction'),
-            //'order' => $request->input('order'),
+            'order' => $request->input('order'),
         ]);
 
-        return redirect('/forms/'.$request->input('form_id'));
+        return redirect('/forms/'.$formAnswer->form_id);
     }
 
     /**

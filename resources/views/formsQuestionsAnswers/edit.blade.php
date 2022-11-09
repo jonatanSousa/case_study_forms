@@ -41,6 +41,17 @@
                     value="{{ $answer->text }}"
                 >
 
+
+                <input
+                    type="text"
+                    class="block shadow-5x1 mb-10 w-80 placeholder-gray-400"
+                    name="order"
+                    placeholder="Order"
+                    value="{{ $answer->order }}"
+
+                >
+
+
                 <select
                     class="block shadow-5x1 mb-10 w-80 placeholder-gray-400"
                     name="behavior">
