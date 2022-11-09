@@ -25,7 +25,7 @@ php artisan:serve
 ## Using Docker
 
 It's also possible to use 🐳 Docker to setup & install the project please kindly follow the instructions:
-At this point we assume you have docker & running on your machine
+At this point i assume you have docker & running on your machine
 
 ```bash
 git clone https://github.com/jonatanSousa/case_study_forms.git study_forms
