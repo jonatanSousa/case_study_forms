@@ -19,7 +19,7 @@
 </head>
 <body class="w-full h-full bg-gray-100">
     <div class="w-4/5 mx-auto">
-        <div class="text-center pt-20">
+        <div class="text-left pt-20">
             <h1 class="text-3xl text-gray-700">
                 {{ $form->name }}
             </h1>
@@ -31,7 +31,7 @@
                 @forelse ($form->FormsQuestions as $formQuestions)
                     <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
                         <div class="w-11/12 mx-auto pb-10">
-                            <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
+                            <h2 class="text-gray-500 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
                                 <a href="{{ route('forms-questions.edit', $formQuestions->id) }}">
                                     {{$formQuestions->text}}
                                 </a>
@@ -40,12 +40,18 @@
                                 @forelse ($form->FormsQuestionsAnswers as $formsQuestionsAnswers)
                                     @if($formQuestions->id === $formsQuestionsAnswers->forms_questions_id)
                                         <p>
-                                            {{ $formsQuestionsAnswers->id }}  {{ $formsQuestionsAnswers->text }}
-                                            <a
-                                                class="text-green-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
-                                                href="{{ route('forms.edit', $form->id) }}">
-                                                Add New answer &rarr;
-                                            </a>
+                                            <form action="/forms-questions-answers/{{ $formsQuestionsAnswers->id }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <a class="text-gray-400 pb-0 sm:pt-0 hover:text-gray-700 transition-all"
+                                                   href="{{ route('forms-questions-answers.edit', $formsQuestionsAnswers->id) }}">
+                                                    {{ $formsQuestionsAnswers->text }}
+                                                    | {{$formsQuestionsAnswers->behavior}}
+                                                </a>
+                                                <button class="text-red-900" type="submit">
+                                                    Delete &rarr;
+                                                </button>
+                                            </form>
                                         </p>
                                     @endif
                                 @empty
@@ -57,7 +63,7 @@
                             <div class="float-center" >
                                 <a
                                     class="text-green-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
-                                    href="{{ route('forms.edit', $form->id) }}">
+                                    href="{{ route('forms-questions-answers.create', ["formQuestions" => $formQuestions->id, "formId" => $form->id]) }}">
                                     Add New answer &rarr;
                                 </a>
                             </div>

@@ -7,12 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FormsQuestionsAnswers extends Model
 {
-    use HasFactory;
+    protected $fillable = ['text', 'ref', 'forms_questions_id','behavior', 'restriction'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    /*public function formsQuestionAnswers() {
+    public function FormsQuestions() {
         return $this->belongsTo(FormsQuestions::class);
-    }*/
+    }
 }

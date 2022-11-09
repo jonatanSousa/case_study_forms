@@ -53,7 +53,7 @@
                     <form action="/forms/{{ $form->id }}" method="POST">
                         @csrf
                         @method('delete')
-                        <button type="submit">
+                        <button class="text-red-900" type="submit">
                             Delete &rarr;
                         </button>
                     </form>

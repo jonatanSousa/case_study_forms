@@ -38,14 +38,11 @@ class FormsQuestionsController extends Controller
     {
         FormsQuestions::create([
             "text" => $request->input('text'),
-            "ref" => $request->input('form_id'),
             "forms_id" => $request->input('form_id'),
-            //to remove
-            "question_ref" => $request->input('form_id'),
-            "parent_question" => $request->input('form_id'),
+            "order" => $request->input('order'),
         ]);
 
-        return redirect('/forms');
+        return redirect('/forms/'.$request->input('form_id'));
     }
 
     /**

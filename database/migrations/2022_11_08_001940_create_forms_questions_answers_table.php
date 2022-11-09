@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('forms_questions_answers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ref');
+            $table->string('order');
             $table->string('text');
             $table->unsignedInteger('forms_questions_id');
-            $table->string('behavior');
-            $table->string('restriction');
+            $table->string('behavior')->nullable();
+            $table->string('restriction')->nullable();
+            $table->string('form_id');
             $table->timestamps();
             $table->foreign('forms_questions_id')
                 ->references('id')

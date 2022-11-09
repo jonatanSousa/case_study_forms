@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\FormsQuestionsController;
-use App\Models\FormsQuestionsAnswers;
+use App\Http\Controllers\FormQuestionsAnswersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,6 @@ use App\Models\FormsQuestionsAnswers;
 
 Route::resource('/forms', FormsController::class);
 Route::resource('/forms-questions', FormsQuestionsController::class);
-Route::resource('/forms-questions-answers', FormsQuestionsAnswers::class);
+Route::resource('/forms-questions-answers', FormQuestionsAnswersController::class);
 
 

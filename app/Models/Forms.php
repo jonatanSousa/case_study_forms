@@ -13,13 +13,13 @@ class Forms extends Model
     protected $fillable = ['name', 'description'];
 
     public function FormsQuestions() {
-        return $this->hasMany(FormsQuestions::class);
+        return $this->hasMany(FormsQuestions::class)->orderBy('order');;
     }
 
     public function FormsQuestionsAnswers(){
         return $this->hasManyThrough(
             FormsQuestionsAnswers::class,
             FormsQuestions::class
-        );
+        )->orderBy('order');
     }
 }
