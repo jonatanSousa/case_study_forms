@@ -113,7 +113,7 @@ class FormQuestionsAnswersController extends Controller
     {
         $answers = FormsQuestionsAnswers::find($id);
         $answers->delete();
-        return redirect('/forms');
+        return redirect('/forms/'.$answers->form_id);
     }
 
     private function getBehaviors($formQuestions) {

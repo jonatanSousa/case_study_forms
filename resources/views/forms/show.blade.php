@@ -20,12 +20,21 @@
 <body class="w-full h-full bg-gray-100">
     <div class="w-4/5 mx-auto">
         <div class="text-left pt-20">
+            <a
+                class="text-blue-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
+                href="{{ route('forms.index') }}">
+                &larr; Return to Forms list
+            </a>
             <h1 class="text-3xl text-gray-700">
                 {{ $form->name }}
             </h1>
             <p class="text-lg text-gray-700 py-6" >
                 {{ $form->description }}
             </p>
+            <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
+               href="{{ route('forms-questions.create', ["form" => $form->id]) }}">
+                New question
+            </a>
             <hr class="border border-1 border-gray-300 mt-10">
             <div>
                 @forelse ($form->FormsQuestions as $formQuestions)
@@ -72,12 +81,6 @@
                 @empty
 
                 @endforelse
-            <div class="py-10 sm:py-20">
-                <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
-                   href="{{ route('forms-questions.create', ["form" => $form->id]) }}">
-                    New question
-                </a>
-            </div>
         </div>
     </div>
 </body>

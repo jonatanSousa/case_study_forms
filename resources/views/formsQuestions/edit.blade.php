@@ -19,6 +19,13 @@
 </head>
 <body class="w-full h-full bg-gray-100">
 <div class="w-4/5 mx-auto">
+    <div class="text-left pt-20">
+        <a
+            class="text-blue-900   pt-20 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
+            href="{{ route('forms.show', Request::get('form'))}}">
+            &larr; Return to Forms
+        </a>
+    </div>
     <div class="text-center pt-20">
         <h1 class="text-3xl text-gray-700">
             Create Form questions
