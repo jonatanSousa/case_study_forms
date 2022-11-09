@@ -43,8 +43,5 @@ jobs:
       - name: Generate app key
         run: php artisan key:generate
 
-      - name: docker up
-        run: docker-compose up -d
-
       - name: Execute tests
         run: docker-compose exec app php artisan test
