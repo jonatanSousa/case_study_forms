@@ -44,7 +44,7 @@ If all goes well your new shiny website should be serving at ``http://localhost/
 ## Using the Api
 
 ```bash
-curl --location --request GET 'http://127.0.0.1/api/forms/1'
+curl --location --request GET 'http://127.0.0.1/api/forms/{formId}'
 ```
 
 ## Testing
