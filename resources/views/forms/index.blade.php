@@ -34,22 +34,35 @@
     </div>
 
     @foreach($forms as $form)
-        <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
-            <div class="w-11/12 mx-auto pb-10">
-                <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
-                    <a href="{{ route('forms.show', $form->id) }}">
-                        {{ $form->name }}
-                    </a>
-                </h2>
-                <p class="text-gray-900 text-lg py-8 w-full break-words">
-                    {{ $form->description }}
-                </p>
+        <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-ful">
+            <div class="w-11/12 mx-auto pb-20 ">
+                <div class="float-left">
+                    <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
+                        <a href="{{ route('forms.show', $form->id) }}">
+                            {{ $form->name }}
+                        </a>
+                    </h2>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $form->description }}
+                    </p>
+                </div>
+
                 <div class="float-right" >
-                    <a
-                        class="text-green-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
-                        href="{{ route('forms.edit', $form->id) }}">
-                       Edit &rarr;
-                    </a>
+                    <p>
+                        <a
+                            class="text-blue-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
+                            href="{{ route('forms.show', $form->id) }}">
+                            Add questions  &rarr;
+                        </a>
+                    </p>
+                    <p>
+                        <a
+                            class="text-green-900 text-2xlpb-0 sm:pt-0 hover:text-green-700 transition-all"
+                            href="{{ route('forms.edit', $form->id) }}">
+                            Edit &rarr;
+                        </a>
+                    </p>
+
                     <form action="/forms/{{ $form->id }}" method="POST">
                         @csrf
                         @method('delete')
